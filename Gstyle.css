@@ -1,0 +1,44 @@
+body {
+    background-image: linear-gradient(to right, #3D2777, #09090A);
+    font-family: 'system-ui';
+}
+
+h1 {
+    padding: 15px;
+    color: #E6E6E7;
+}
+h2 {
+    border-bottom: 2px solid #2596EA;  
+    padding: 4px;  
+}
+h2:first-child {
+    margin-bottom: 27px;
+}
+
+.principal {
+    background-color: #DBDBDB;
+    margin-top: 35px;
+    padding: 30px;
+}
+
+.card {
+     margin-top: 39px;
+     height: 510px;
+     padding: 15px;
+     
+}
+.boton {
+    margin-left: 180px;
+    margin-top: 10px;
+    width: 170px;
+}
+
+p:last-child {
+    border: solid 2px #CAFCB9 ;
+    padding: 3px;
+    display: none;
+}
+p {
+    border: solid 2px #B9DDFC;
+    padding: 3px;
+}

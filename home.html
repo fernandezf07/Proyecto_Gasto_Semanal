@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="Gstyle.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://kit.fontawesome.com/59d33db8fb.js" crossorigin="anonymous"></script>
+<title>Gasto mensual</title>
+
+</head>
+<body>
+
+   <div class="container">
+        <h1 class="text-center">Gasto mensual <i class="far fa-clipboard"></i></h1>  
+   
+   </div>
+
+   <div class="container principal">
+       <div class="row">
+            <div class="col-6 fondos">
+                <h2>Fondos y gastos aqui</h2>
+                
+                <form id="addSpend">
+                    <div class="form-group">
+                        <label for="">Presupuesto</label>
+                        <input type="number" class="form-control" id="budget"  placeholder="Primero ingrese presupuesto inicial" >
+                        <button type="submit" class="btn btn-primary boton" style="margin-top: 20px" id="presu">Agregar</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Gasto</label>
+                        <input type="text" class="form-control" id="gasto" placeholder="Nombre del gasto" name="">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Cantidad</label>
+                        <input type="number" class="form-control" id="cantidad" placeholder="Cantidad en dinero" name="">
+                    </div>
+                <button type="submit" class="btn btn-primary boton">Agregar gasto</button>
+                </form>
+            </div>
+
+
+            <div class="col-6 lista">
+                <h2>Listado</h2>
+                <div class="card">
+                    <p>Presupuesto:</p>
+                    <p>Restante</p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+   </div>
+
+
+
+
+<script src="appGSemanal.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
