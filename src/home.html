@@ -19,14 +19,14 @@
 
    <div class="container principal">
        <div class="row">
-            <div class="col-6 fondos">
+            <div class="col-12 col-md-6 fondos">
                 <h2>Fondos y gastos aqui</h2>
                 
                 <form id="addSpend">
                     <div class="form-group">
                         <label for="">Presupuesto</label>
                         <input type="number" class="form-control" id="presupuesto"  placeholder="Primero ingrese presupuesto inicial" >
-                        <button type="submit" class="btn btn-primary boton" style="margin-top: 20px" id="presubtn">Agregar</button>
+                        <button type="submit" class="btn btn-primary boton justify-content-center" style="margin-top: 20px" id="presubtn">Agregar</button>
                     </div>
                     <div class="form-group">
                         <label for="">Gasto</label>
@@ -36,19 +36,21 @@
                         <label for="">Cantidad</label>
                         <input type="number" class="form-control" id="gasto-cantidad" placeholder="Cantidad en dinero" >
                     </div>
-                <button type="submit" class="btn btn-primary boton" id="gastobtn">Agregar gasto</button>
+                <button  class="btn btn-primary boton" id="gastobtn">Agregar gasto</button>
+                <div class="addError"></div>
                 </form>
             </div>
 
 
-            <div class="col-6 lista">
+            <div class="col-12 col-md-6 lista">
                 <h2>Listado</h2>
                 <div class="card">
-                    <p>Presupuesto:</p>
-                    <p>Restante</p>
-                </div>
+                    <p class="pres">Presupuesto:<span id="printBudge"></span> </p>
+                    <p>Restante <span id="printRest"></span></p>
+                  <div class="gastos"></div>
             </div>
         </div>
+     </div>
 
 
 
