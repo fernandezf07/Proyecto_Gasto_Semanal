@@ -38,9 +38,10 @@ h2:first-child {
   border: solid 2px #cafcb9;
   padding: 3px;
 }
-p {
+.rest {
   border: solid 2px #b9ddfc;
   padding: 3px;
+  display: none;
 }
 
 span {
