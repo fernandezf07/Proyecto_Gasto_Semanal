@@ -37,14 +37,21 @@ h2:first-child {
 .pres {
   border: solid 2px #cafcb9;
   padding: 3px;
+  color: green;
 }
 .rest {
   border: solid 2px #b9ddfc;
   padding: 3px;
+  color: rgb(52, 149, 214);
   display: none;
 }
 
 span {
   margin-left: 5px;
-  color: green;
 }
+
+/*.gastos {
+  background-color: #dbdbdb;
+  height: 55px;
+  width: 100%;
+}*/

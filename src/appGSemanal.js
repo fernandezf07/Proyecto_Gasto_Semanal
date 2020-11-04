@@ -1,50 +1,68 @@
 //variables globales
 
 const addError = document.querySelector('.addError');
-let presupuesto = document.getElementById('presupuesto');
-const gastoNombre = document.querySelector('#gasto-nombre');
-const cantidadGasto = document.querySelector('#gasto-cantidad');
-const button = document.querySelector('#presubtn');
-const buttonGasto = document.getElementById('gastobtn');
+const pintarRest = document.querySelector('.rest');
+const contentRest = document.querySelector('#contentRest');
 
 // capturando eventos y aplicando funciones
+
+const button = document.querySelector('#presubtn');
+const buttonGasto = document.getElementById('gastobtn');
 button.addEventListener('click', addBudge);
-buttonGasto.addEventListener('click', addSpend)
+buttonGasto.addEventListener('click', showSpend)
 
 // valida e imprime el presupuesto en pantalla
 function addBudge (e) {
 
-	e.preventDefault();
-
-	const budge = document.getElementById('printBudge');
+	let presupuesto = document.getElementById('presupuesto').value;
+	const budge = document.getElementById('contentBudge');
+	presupuesto = parseInt(presupuesto);
 	
-	if (presupuesto.value < 1 ) {
+	e.preventDefault();		
+	if (presupuesto < 1 ) {
 		showError('Debe contener un presupuesto inicial o un valor mayor a 0')
+
 	} else {
-		budge.textContent = presupuesto.value;
-		
+		 budge.textContent = presupuesto;
+		 			 
 	}
 		
 }
 
-
-function addSpend (e) {
-
-	e.preventDefault();
-	const valorNombre = gastoNombre.value;
-	let gasto = cantidadGasto.value;
-	const pintarRest = document.querySelector('.rest');
+// valida y muestra el restante y el gasto
+function showSpend (e) {
+	let cantidadGasto = document.querySelector('#gasto-cantidad').value;
+	const gastoNombre = document.querySelector('#gasto-nombre').value;
 	
-	let restante;
-
+	e.preventDefault();	
 	if (cantidadGasto.value < 1 || gastoNombre.length === 0) {
 	    showError('Complete todos los campos');
 	} else {
-		  pintarRest.style.display = 'flex';
+		 printRemaining(cantidadGasto);
+		 addSpend(cantidadGasto, gastoNombre);
 	}
 	
 }
 
+// imprime el restante
+function printRemaining (gasto) {
+	   let presupuesto = document.getElementById('presupuesto').value;
+	   presupuesto = parseInt(presupuesto);
+	   gasto = parseInt(gasto);
+	   
+	   let acumulador = 0
+	   acumulador = acumulador + gasto;
+	   restante = presupuesto - acumulador;
+	   contentRest.textContent = restante;
+	   pintarRest.style.display = 'flex';
+	 
+}
+
+function addSpend (cant, nombre) {
+	  const mostrar = document.createElement('div');
+	  mostrar.classList.add('gastos');
+	  
+}
 // muestra el error de validacion  por 2.5 segundos.
 function showError (msg) {
 	
@@ -60,8 +78,8 @@ function showError (msg) {
 	if (errors.length === 0) {
        addError.appendChild(messageError);
 	}
-	setTimeout(() => {
-		
-		messageError.remove();
+	setTimeout(() => {	
+
+		messageError.remove();	
 	}, 2500);
 }
