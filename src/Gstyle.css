@@ -17,13 +17,13 @@ h2:first-child {
 
 .principal {
   background-color: #dbdbdb;
-  margin-top: 35px;
+  margin-top: 20px;
   padding: 30px;
 }
 
 .card {
-  margin-top: 39px;
-  height: 510px;
+  margin-top: 20px;
+  height: 670px;
   padding: 15px;
 }
 .boton {
@@ -34,6 +34,10 @@ h2:first-child {
   align-items: center;
 }
 
+.error {
+  padding: 3px;
+  margin: 8px;
+}
 .pres {
   border: solid 2px #cafcb9;
   padding: 3px;
@@ -50,8 +54,21 @@ span {
   margin-left: 5px;
 }
 
-/*.gastos {
+.gastos {
   background-color: #dbdbdb;
   height: 55px;
   width: 100%;
-}*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+.gasto-span {
+  font-size: 18px;
+}
+.fa-times-circle {
+  color: red;
+  cursor: pointer;
+  padding-left: 20px;
+  font-size: 24px;
+}

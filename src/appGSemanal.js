@@ -1,8 +1,7 @@
 //variables globales
-
-const addError = document.querySelector('.addError');
 const pintarRest = document.querySelector('.rest');
 const contentRest = document.querySelector('#contentRest');
+const form = document.getElementById('form');
 
 // capturando eventos y aplicando funciones
 
@@ -14,12 +13,11 @@ buttonGasto.addEventListener('click', showSpend)
 // valida e imprime el presupuesto en pantalla
 function addBudge (e) {
 
-	let presupuesto = document.getElementById('presupuesto').value;
+	let presupuesto = Number(document.getElementById('presupuesto').value);
 	const budge = document.getElementById('contentBudge');
-	presupuesto = parseInt(presupuesto);
 	
 	e.preventDefault();		
-	if (presupuesto < 1 ) {
+	if (presupuesto < 1 || presupuesto == '') {
 		showError('Debe contener un presupuesto inicial o un valor mayor a 0')
 
 	} else {
@@ -31,24 +29,23 @@ function addBudge (e) {
 
 // valida y muestra el restante y el gasto
 function showSpend (e) {
-	let cantidadGasto = document.querySelector('#gasto-cantidad').value;
+	let cantidadGasto = Number(document.querySelector('#gasto-cantidad').value);
 	const gastoNombre = document.querySelector('#gasto-nombre').value;
 	
 	e.preventDefault();	
-	if (cantidadGasto.value < 1 || gastoNombre.length === 0) {
+	if (cantidadGasto.value < 1 || gastoNombre.length == 0) {
 	    showError('Complete todos los campos');
 	} else {
 		 printRemaining(cantidadGasto);
-		 addSpend(cantidadGasto, gastoNombre);
+		 addSpend(gastoNombre, cantidadGasto);
+		 
 	}
 	
 }
 
 // imprime el restante
 function printRemaining (gasto) {
-	   let presupuesto = document.getElementById('presupuesto').value;
-	   presupuesto = parseInt(presupuesto);
-	   gasto = parseInt(gasto);
+	   let presupuesto = Number(document.getElementById('presupuesto').value);
 	   
 	   let acumulador = 0
 	   acumulador = acumulador + gasto;
@@ -58,10 +55,14 @@ function printRemaining (gasto) {
 	 
 }
 
-function addSpend (cant, nombre) {
+function addSpend (nombre, cant) {
 	  const mostrar = document.createElement('div');
 	  mostrar.classList.add('gastos');
-	  
+
+	  mostrar.innerHTML = `
+	  <span class ='gasto-span'> ${nombre} : ${cant} </span> <i class="fas fa-times-circle"></i>  
+	  `;
+	  document.querySelector('.card').appendChild(mostrar);
 }
 // muestra el error de validacion  por 2.5 segundos.
 function showError (msg) {
@@ -70,13 +71,10 @@ function showError (msg) {
 	messageError.textContent = msg;
 
 	messageError.classList.add('border', 'border-danger','text-danger','error');
-	messageError.style.padding = '3px';
-	messageError.style.marginTop = '8px';
-
 	const errors = document.querySelectorAll('.error')
 
 	if (errors.length === 0) {
-       addError.appendChild(messageError);
+       document.querySelector('.addError').appendChild(messageError);
 	}
 	setTimeout(() => {	
 
